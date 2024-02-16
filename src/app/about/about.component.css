@@ -1,0 +1,7 @@
+@import url(https://bootswatch.com/5/slate/bootstrap.rtl.min.css);
+@import url(https://bootswatch.com/5/slate/bootstrap.min.css);
+
+.card {
+    margin-left: 10px;
+    margin-right: 10px;
+  }

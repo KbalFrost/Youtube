@@ -1,0 +1,19 @@
+<div class="container mt-4 py-2">
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+      <h1 class="mb-4">Search Videos</h1>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Enter keywords to find videos..." [(ngModel)]="searchQuery" (keyup.enter)="searchVideos()" (keyup)="autocompleteSearch()">
+        <button class="btn btn-primary" type="button" (click)="searchVideos()" [disabled]="!searchQuery.trim()" [ngClass]="{'disabled': !searchQuery.trim()}">Search</button>
+      </div>
+      <div class="text-warning mt-2" *ngIf="searchQuery.length < 1">Please enter at least 1 character.</div>
+      <div class="text-danger mt-2" *ngIf="errorMessage">{{ errorMessage }}</div>
+      <div *ngIf="suggestions.length > 0" class="mt-4">
+        <h4 class="text-muted">Suggestions:</h4>
+        <ul class="list-group">
+          <li class="list-group-item btn" *ngFor="let suggestion of suggestions" (click)="selectSuggestion(suggestion)">{{ suggestion }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
